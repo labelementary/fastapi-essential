@@ -1,7 +1,7 @@
 [project]
-name = "master"
+name = "fastapi-essential"
 version = "0.1.0"
-description = "Add your description here"
+description = "A FastAPI-based project that provides essential functionality for a web application."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
