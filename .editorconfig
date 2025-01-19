@@ -1,0 +1,44 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# General settings for all files
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+# Markdown files
+[*.mdx]
+trim_trailing_whitespace = false
+
+# JSON files
+[*.json]
+indent_size = 2
+insert_final_newline = false
+
+# YAML files
+[*.{yml,yaml}]
+indent_size = 2
+
+# Python files
+[*.py]
+indent_size = 4
+trim_trailing_whitespace = true
+
+# Shell scripts
+[*.sh]
+indent_style = space
+indent_size = 2
+
+# Ignore built and vendor files
+[{build,dist,__pycache__,node_modules,venv,.env,.turbo}/**]
+indent_style = ignore
+indent_size = ignore
+end_of_line = ignore
+trim_trailing_whitespace = ignore
+charset = ignore
