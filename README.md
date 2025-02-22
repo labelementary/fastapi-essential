@@ -63,47 +63,29 @@ The folder structure of the project is organized as follows:
 ```bash
 
 /project-root
-    .github                 # GitHub-related files
-    .vscode                 # Visual Studio Code-related files
+    .github                 # GitHub Workflow Configs
+    .vscode                 # Visual Studio Code Configs
     /src
-        /routes            # Contains all the API route definitions
-            root.py        # Root route and basic endpoints
-            users.py       # Example of additional route files
-        /models            # Contains ORM models and database schemas
-            user.py        # User model
-            post.py        # Post model
-        /config            # Configuration files for the app
-            settings.py    # Settings for environment variables
-            database.py    # Database connection configuration
-        /hooks             # Custom hooks or utility functions
-    /tests                 # Contains unit tests and integration tests
-    .editorconfig          # Defines coding styles between different editors and IDEs
-    .gitattributes         # Defines attributes for files
-    .gitignore             # Specifies files to ignore in Git
+        /configs            # Configuration files for the application
+        /functions          # Contains routes functions
+        /interfaces         # Contains interfaces for the application
+        /models             # Contains database models
+        /queries            # Contains queries for the application
+        /routes             # Contains routes for the application
+        /utils              # Contains utility functions
+        /main.py            # Entry point for the application
+    /tests                  # Contains unit tests and integration tests
+    .editorconfig           # Defines coding styles and formatting rules
+    .gitattributes          # Defines attributes for files
+    .gitignore              # Specifies files to ignore in Git
     .pre-commit-config.yaml # Configuration file for pre-commit hooks
-    .python-version        # Specifies the Python version used by the project
-    build.py               # Build script for the application
-    ruff.toml              # Configuration file for the Ruff linter and formatter
-    pyproject.toml         # Project configurations and dependencies
-    README.md              # Project documentation
-    LICENSE                # License information
+    .python-version         # Specifies the Python version used by the project
+    build.py                # Build script for the application
+    ruff.toml               # Configuration file for the Ruff linter and formatter
+    pyproject.toml          # Project configurations and dependencies
+    README.md               # Project documentation
+    LICENSE                 # License information
 ```
-
-### Routes
-
-- **/routes**: Contains all the route files where API endpoints are defined. Each route file corresponds to a feature or resource of the application (e.g., `root.py`, `users.py`).
-
-### Models
-
-- **/models**: Contains the database models that define the structure of your data in the database (e.g., `user.py`, `post.py`).
-
-### Config
-
-- **/config**: Contains configuration files for various services and settings such as database connection, environment variables, etc. (e.g., `settings.py`, `database.py`).
-
-### Hooks
-
-- **/hooks**: Contains custom utility functions or hooks that are shared across different parts of the application.
 
 ## License
 

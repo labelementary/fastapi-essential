@@ -26,6 +26,10 @@ exclude = [
     "node_modules",
     "site-packages",
     "venv",
+    "alembic.ini",
+    "alembic",
+    "__pycache__",
+    "tests",
 ]
 
 # Same as Black.
