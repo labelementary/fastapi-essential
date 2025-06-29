@@ -1,16 +1,17 @@
 [project]
 name = "fastapi-essential"
 version = "0.1.0"
-description = "A FastAPI-based project that provides essential functionality for a web application."
+description = "A FastAPI-Based Project that provides essential setup for a API application."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "alembic>=1.14.1",
     "fastapi[standard]>=0.115.6",
-    "pre-commit>=4.0.1",
+    "pydantic>=2.10.5",
+    "slowapi>=0.1.9",
     "sqlalchemy>=2.0.37",
     "uvicorn[standard]>=0.34.0",
 ]
 
 [dependency-groups]
-dev = ["ruff>=0.9.2"]
+dev = ["ruff>=0.9.2", "pre-commit>=4.0.1", "pytest>=8.4.1"]
