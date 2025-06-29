@@ -11,3 +11,6 @@ wheels/
 
 # Ruff cache directory
 .ruff_cache/
+
+# env files
+.env
