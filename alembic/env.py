@@ -2,30 +2,33 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-
+from src.configs.model import Base
+import os
+from dotenv import load_dotenv
 from alembic import context
 
-# this is the Alembic Config object, which provides
-# access to the values within the .ini file in use.
+# Load Environment Variables
+load_dotenv()
+
+# Alembic Config object, which provides access to the values within the .ini file in use.
 config = context.config
 
 # Interpret the config file for Python logging.
-# This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
-target_metadata = None
+# Add your model's MetaData object here
+target_metadata = Base.metadata
 
-# other values from the config, defined by the needs of env.py,
-# can be acquired:
-# my_important_option = config.get_main_option("my_important_option")
-# ... etc.
+# Set the SQLAlchemy URL from the environment variable PG_URL - For Async pg
+pg_url = os.getenv('PG_URL')
+if pg_url:
+    sync_pg_url = pg_url.replace('asyncpg', 'psycopg2')
+    config.set_main_option('sqlalchemy.url', sync_pg_url)
+else:
+    raise ValueError("PG_URL environment variable is not set. Please set it to your database URL.")
 
-
+# Function to Handle Migrations Offline
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
 
@@ -49,7 +52,7 @@ def run_migrations_offline() -> None:
     with context.begin_transaction():
         context.run_migrations()
 
-
+# Function to Run Migrations Online
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode.
 
@@ -69,7 +72,7 @@ def run_migrations_online() -> None:
         with context.begin_transaction():
             context.run_migrations()
 
-
+# Run the appropriate migration function based on the mode
 if context.is_offline_mode():
     run_migrations_offline()
 else:

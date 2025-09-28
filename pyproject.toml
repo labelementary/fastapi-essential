@@ -1,17 +1,60 @@
 [project]
 name = "fastapi-essential"
-version = "0.1.0"
-description = "A FastAPI-Based Project that provides essential setup for a API application."
+version = "1.1.0"
+description = "FastAPI Essential, Pre-Configured FastAPI Project with all essential dependencies and configurations for a robust and scalable FastAPI application."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12,<3.13"
+
+# --- Dependencies Group ---
 dependencies = [
     "alembic>=1.14.1",
+    "asyncpg>=0.30.0",
     "fastapi[standard]>=0.115.6",
+    "logging>=0.4.9.6",
+    "psycopg2>=2.9.10",
     "pydantic>=2.10.5",
-    "slowapi>=0.1.9",
-    "sqlalchemy>=2.0.37",
-    "uvicorn[standard]>=0.34.0",
+    "python-dotenv>=1.0.1",
+    "sqlalchemy[asyncio]>=2.0.43",
 ]
 
+# --- Dev Dependency Groups ---
 [dependency-groups]
-dev = ["ruff>=0.9.2", "pre-commit>=4.0.1", "pytest>=8.4.1"]
+dev = [
+    "types-redis>=4.6.0.20241004",
+    "ruff>=0.9.2",
+    "pre-commit>=4.0.1",
+    "pyright>=1.1.403",
+    "types-sqlalchemy>=1.4.53.38",
+]
+
+# --- Pyright Configuration ---
+[tool.pyright]
+include = ["src"]
+exclude = [".venv", ".ruff_cache", "**/__pycache__", ".git"]
+typeCheckingMode = "standard"
+reportMissingImports = true
+reportUnusedVariable = true
+reportPrivateUsage = "warning"
+reportIncompatibleMethodOverride = true
+pythonVersion = "3.11"
+pythonPlatform = "All"
+
+# --- Ruff Configuration ---
+[tool.ruff]
+target-version = "py311"
+exclude = [".venv", ".ruff_cache", "**/__pycache__", ".git", "alembic"]
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP"]
+ignore = ["E501", "B008"]
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

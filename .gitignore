@@ -12,5 +12,20 @@ wheels/
 # Ruff cache directory
 .ruff_cache/
 
-# env files
+# uploads
+uploads
+
+# env variables
 .env
+
+# gunicorn
+ababil.sock
+
+# secrets
+secrets/
+
+# zed
+.ropeproject/
+
+# celery
+celerybeat-schedule.db

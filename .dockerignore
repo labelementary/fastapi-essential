@@ -1,0 +1,9 @@
+# Docker Ignores for FastAPI Backend Application
+
+# Ignore cache folders
+__pycache__
+.ruff_cache
+.venv
+
+# Static files
+.uploads
