@@ -253,7 +253,7 @@ wheels = [
 
 [[package]]
 name = "fastapi-essential"
-version = "1.1.0"
+version = "1.0.0"
 source = { virtual = "." }
 dependencies = [
     { name = "alembic" },
@@ -272,7 +272,6 @@ dev = [
     { name = "pyright" },
     { name = "ruff" },
     { name = "types-redis" },
-    { name = "types-sqlalchemy" },
 ]
 
 [package.metadata]
@@ -293,7 +292,6 @@ dev = [
     { name = "pyright", specifier = ">=1.1.403" },
     { name = "ruff", specifier = ">=0.9.2" },
     { name = "types-redis", specifier = ">=4.6.0.20241004" },
-    { name = "types-sqlalchemy", specifier = ">=1.4.53.38" },
 ]
 
 [[package]]
@@ -823,15 +821,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/19/bd/1e5f949b7cb740c9f0feaac430e301b8f1c5f11a81e26324299ea671a237/types_setuptools-80.9.0.20250822.tar.gz", hash = "sha256:070ea7716968ec67a84c7f7768d9952ff24d28b65b6594797a464f1b3066f965", size = 41296, upload-time = "2025-08-22T03:02:08.771Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b6/2d/475bf15c1cdc172e7a0d665b6e373ebfb1e9bf734d3f2f543d668b07a142/types_setuptools-80.9.0.20250822-py3-none-any.whl", hash = "sha256:53bf881cb9d7e46ed12c76ef76c0aaf28cfe6211d3fab12e0b83620b1a8642c3", size = 63179, upload-time = "2025-08-22T03:02:07.643Z" },
-]
-
-[[package]]
-name = "types-sqlalchemy"
-version = "1.4.53.38"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/ab/ce/0b7fa93dbc49b328807dedef8006223129e5a9543c74727dd7658eca5a9d/types-SQLAlchemy-1.4.53.38.tar.gz", hash = "sha256:5bb7463537e04e1aa5a3557eb725930df99226dcfd3c9bf93008025bfe5c169e", size = 118888, upload-time = "2023-05-01T15:15:28.572Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/1a/4f/033a839a35ecbc5f71c0d74655d1237e909651aaebe7ceb825ac45cfdb4b/types_SQLAlchemy-1.4.53.38-py3-none-any.whl", hash = "sha256:7e60e74f823931cc9a9e8adb0a4c05e5533e6708b8a266807893a739faf4eaaa", size = 187916, upload-time = "2023-05-01T15:15:26.02Z" },
 ]
 
 [[package]]

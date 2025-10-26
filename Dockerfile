@@ -38,4 +38,4 @@ ENV PATH="/app/env/bin:$PATH"
 EXPOSE 8000
 
 # Use a shell to evaluate the PORT variable, defaulting to 8000 if not set
-CMD ["/bin/sh", "-c", "uv run uvicorn src.main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 4"]
+CMD ["/bin/sh", "-c", "uv run uvicorn src.main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 1"]
