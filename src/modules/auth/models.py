@@ -1,10 +1,9 @@
-# Models, Define your models here
 from sqlalchemy import Column, Integer, String
 
-from configs.model import Base
+from src.configs.model import Base
 
 
-# User Model
+# Class to Handle User Model
 class User(Base):
     __tablename__ = "users"
 

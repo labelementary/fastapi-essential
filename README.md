@@ -80,20 +80,20 @@ Ruff is an extremely fast linter and code formatter.
     uv run ruff check src --fix
     ```
 
-### 2. Static Type Checking with Pyright
+### 2. Static Type Checking with Ty
 
-Pyright checks your code for type errors, helping you catch bugs before you even run the application.
+Ty checks your code for type errors, helping you catch bugs before you even run the application.
 
 *   **Run a one-time check:**
     ```bash
-    uv run pyright
+    uv run ty check
     ```
     If there are no errors, the command will finish silently. Otherwise, it will print a detailed report.
 
 *   **Run in "watch" mode for live feedback (Recommended):**
     This command provides instant feedback in your terminal every time you save a file.
     ```bash
-    uv run pyright --watch
+    uv run ty check --watch
     ```
 
 ## Folder Structure
@@ -103,17 +103,17 @@ The project is organized using a modern `src` layout.
 ```
 /fastapi-essential
 ├── .github/             # GitHub Actions workflows
-├── .venv/               # Virtual environment managed by uv
 ├── alembic/             # Alembic database migration scripts
 ├── src/                 # Main application source code
-│   ├── configs/         # Configuration (database, settings)
-│   ├── functions/       # Business logic and services
-│   ├── models/          # SQLAlchemy ORM models
-│   ├── routes/          # API endpoint definitions (routers)
-│   │   └── v1/
+│   ├── configs/         # Holds All Configuration (database, settings)
+│   ├── modules/         # Holds Business Logic Modules (Modular Monolithic)
+│   ├── routes/          # Holds All Services Routers Includes
+│   │   └── user.py/     # Holds User Specific Routers Includes
+│   ├── utils/           # Holds Utility & Helpers Functions used Gloablly
 │   ├── __init__.py
-│   └── main.py          # FastAPI application entry point
-├── tests/               # Unit and integration tests
+│   └── logs.py          # Logs Configurations
+│   └── main.py          # FastAPI Application Entry Point
+├── tests/               # Unit and integration Tests Cases
 ├── .gitignore
 ├── .pre-commit-config.yaml # Configuration for pre-commit hooks
 ├── pyproject.toml       # Project metadata, dependencies, and tool configs (Ruff, Pyright)

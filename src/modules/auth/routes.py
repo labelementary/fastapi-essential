@@ -1,18 +1,12 @@
-# Routes, Define your routes here
-from auth.functions import user_login
 from fastapi import APIRouter
 
-# Router
-auth_router = APIRouter()
+from src.modules.auth.functions import user_login_post
+
+# Configured Router for Authentication Routes for User
+auth_router = APIRouter(prefix="/auth")
 
 
-# Route to Handle User Login
+# Router Function to Handle User Login POST Request
 @auth_router.post("/login")
 async def user_login_post_call():
-    """
-    Handles user login.
-
-    Returns:
-        JSONResponse: A JSON response indicating the login status.
-    """
-    return user_login()
+    return await user_login_post()

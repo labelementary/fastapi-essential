@@ -7,6 +7,9 @@ import os
 from dotenv import load_dotenv
 from alembic import context
 
+# Load Models
+from src.modules.auth.models import User
+
 # Load Environment Variables
 load_dotenv()
 
@@ -21,12 +24,15 @@ if config.config_file_name is not None:
 target_metadata = Base.metadata
 
 # Set the SQLAlchemy URL from the environment variable PG_URL - For Async pg
-pg_url = os.getenv('PG_URL')
+pg_url = os.getenv("PG_URL")
 if pg_url:
-    sync_pg_url = pg_url.replace('asyncpg', 'psycopg2')
-    config.set_main_option('sqlalchemy.url', sync_pg_url)
+    sync_pg_url = pg_url.replace("asyncpg", "psycopg2")
+    config.set_main_option("sqlalchemy.url", sync_pg_url)
 else:
-    raise ValueError("PG_URL environment variable is not set. Please set it to your database URL.")
+    raise ValueError(
+        "PG_URL environment variable is not set. Please set it to your database URL."
+    )
+
 
 # Function to Handle Migrations Offline
 def run_migrations_offline() -> None:
@@ -52,6 +58,7 @@ def run_migrations_offline() -> None:
     with context.begin_transaction():
         context.run_migrations()
 
+
 # Function to Run Migrations Online
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode.
@@ -71,6 +78,7 @@ def run_migrations_online() -> None:
 
         with context.begin_transaction():
             context.run_migrations()
+
 
 # Run the appropriate migration function based on the mode
 if context.is_offline_mode():

@@ -1,5 +1,5 @@
-# Use a Python image with uv pre-installed (Python 3.11)
-FROM ghcr.io/astral-sh/uv:python3.11-bookworm-slim
+# Use a Python image with uv pre-installed (Python 3.12)
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 
 # Set the working directory
 WORKDIR /app
